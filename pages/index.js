@@ -1,3 +1,5 @@
+import React, {useState} from 'react';
+
 import Button from "../components/Button/Button";
 import PageTitle from "../components/PageTitle/PageTitle";
 
@@ -26,7 +28,15 @@ function Product (){
 
 
 export default function Home(...props) {
- 
+  const [isLoading, setIsLoading] = useState(false);
+
+  // if(isLoading){
+  //   console.log('state loaded')
+  //   return null;
+  // }
+
+
+
   const products = props.products;
   console.log(products)
 
@@ -37,7 +47,9 @@ export default function Home(...props) {
       <PageTitle title="StoreFront Title" tagline="Featured Users"/>
       <main>
         <div style={{textAlign:"center"}}>
-          <Button style={{background:"red"}}>Get Some Data</Button><Button style={{background:"blue"}}>Other Test Button</Button>
+          <Button style={{background:"red"}}>Get Some Data</Button><Button onClick={()=>setIsLoading(!isLoading)} style={{background:"blue"}}>Click Test Button</Button>
+          {isLoading&& <p style={{padding:"1rem"}}>This is my ouput</p>
+          }
           {/* { products.map(products=> <p>product</p>) } */}
           
         </div>
