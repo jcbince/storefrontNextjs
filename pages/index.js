@@ -43,7 +43,7 @@ export default function Home(...props) {
       </div>
       <main>
         {
-          userData.map(user=>null)
+          userData.map(({id, name, email, username})=> <User key={id} name={name} email={email} username={username}/>)
         }
       </main>
     </>

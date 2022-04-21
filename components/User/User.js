@@ -1,11 +1,10 @@
 import React from 'react';
 
-
 import styles from './styles.module.scss'
 
-function User ({children, ...props})  {
+function User ({children,name,username,email, ...props})  {
   return (
-           <UserStyles  {...props}>
+         
            <aside className={styles.user}>
              <header>
                <h2>{name}</h2>
@@ -13,7 +12,7 @@ function User ({children, ...props})  {
               </header>
               <p>{email}</p>
            </aside>
-        </UserStyles>
+   
   
         
   )
