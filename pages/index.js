@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import Button from "../components/Button/Button";
 import PageTitle from "../components/PageTitle/PageTitle";
@@ -29,11 +29,21 @@ function Product (){
 
 export default function Home(...props) {
   const [isLoading, setIsLoading] = useState(false);
+  console.log("home render")
 
-  // if(isLoading){
-  //   console.log('state loaded')
-  //   return null;
-  // }
+
+  useEffect(()=>{
+    console.log("useEffect")
+    async function loadExternalDataTheCRAWay(){
+       const results = await fetch('https://jsonplaceholder.typicode.com/users');
+        
+       const userData = await results.json(); 
+       console.log(userData)
+       const users = Object.values(userData);
+    }
+    loadExternalDataTheCRAWay()
+
+  },[])
 
 
 
