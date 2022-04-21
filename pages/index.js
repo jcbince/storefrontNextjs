@@ -14,11 +14,11 @@ export default function Home(...props) {
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState([])
 
-  console.log("home render")
+  console.log("Home Function rendered")
 
 
   useEffect(()=>{
-    console.log("useEffect")
+    console.log("Data Loader")
     async function loadExternalDataTheCRAWay(){
        const results = await fetch('https://jsonplaceholder.typicode.com/users');
        
@@ -29,12 +29,6 @@ export default function Home(...props) {
     loadExternalDataTheCRAWay()
 
   },[])
-
-
-
-
-
-
 
   return (
     <>
@@ -48,7 +42,9 @@ export default function Home(...props) {
           
       </div>
       <main>
-   
+        {
+          userData.map(user=>null)
+        }
       </main>
     </>
   )
