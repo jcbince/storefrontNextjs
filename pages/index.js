@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import PageTitle from "../components/PageTitle/PageTitle";
 import ProductCard from "../components/ProductCard/ProductCard";
 
@@ -14,7 +13,7 @@ export default function Home(props) {
 
   return (
     <>
-      <PageTitle title="StoreFront Title" tagline="Featured Users"/>
+      <PageTitle title="StoreFront Title" tagline="Featured Products"/>
       
       <main>
       {
