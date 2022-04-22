@@ -18,7 +18,7 @@ export default function Home(props) {
       
       <main>
       {
-        products.map(product=> <ProductCard product={product}/>)
+        products.map(product=> <ProductCard  key={product.uid} product={product}/>)
       }
       </main>
     </>
