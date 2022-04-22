@@ -15,7 +15,8 @@ export default function Home(...props) {
   const [userData, setUserData] = useState([])
 
   console.log("Home Function rendered")
-
+  const userProps = props.data;
+  console.log(userProps)
 
   useEffect(()=>{
     console.log("Data Loader")
@@ -23,8 +24,9 @@ export default function Home(...props) {
        const results = await fetch('https://jsonplaceholder.typicode.com/users');
        
        const data = await results.json(); 
-       console.log(data)
+    
        setUserData(data)
+       console.log('data loaded')
     }
     loadExternalDataTheCRAWay()
 
@@ -34,37 +36,40 @@ export default function Home(...props) {
     <>
       <PageTitle title="StoreFront Title" tagline="Featured Users"/>
       <div style={{textAlign:"center"}}>
-          <Button onClick={()=>setIsLoading(!isLoading)}style={{background:"red"}}>Get Some Data</Button><Button onClick={()=>setIsLoading(!isLoading)} style={{background:"blue"}}>Click Test Button</Button>
+          <Button onClick={()=>setIsLoading(!isLoading)}style={{background:"red"}}>Get Some Data</Button><Button onClick={()=>setIsLoading(!isLoading)} style={{background:"blue"}}>Click Ouput Button</Button>
           {
-            isLoading&& <p style={{padding:"1rem"}}>This is my output</p>
+            isLoading&& <p style={{padding:"1rem"}}>This is my output and here is the data {
+              userData.map(({id, name, email, username})=> <User key={id} name={name} email={email} username={username}/>)
+            }</p> 
           }
-        
+ 
+       
           
       </div>
       <main>
-        {
-          userData.map(({id, name, email, username})=> <User key={id} name={name} email={email} username={username}/>)
-        }
+      {
+        userData.map(({id, name, email, username})=> <User key={id} name={name} email={email} username={username}/>)
+      }
       </main>
     </>
   )
 
 }
-  // const products = props.products;
-  // console.log(products)
-// // getStaticProps =======> server Node.js
+
+
+// creates terminal list data
 
 // export async function getStaticProps() {
 //   const results = await fetch('https://jsonplaceholder.typicode.com/users');
   
-//   const productData = await results.json(); 
-//   console.log(productData)
-//   const products = Object.values(productData);
+//   const userData = await results.json(); 
+//   console.log(userData)
+//   const user = Object.values(userData);
 
 
 //   return {
 //     props:{
-//       products
+//       user
 //     }
 //   }
 // }
