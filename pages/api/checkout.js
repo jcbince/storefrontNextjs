@@ -30,7 +30,7 @@ export default async function handler(req, res) {
               name:product.productName,
               description: product.productDescription,
               images:[product.imageUrl],
-              amount: 15936,
+              amount: product.productPrice*100,
               currency:"CAD",
               quantity:1
   
