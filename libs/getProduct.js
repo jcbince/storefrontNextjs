@@ -1,4 +1,4 @@
-async function getProducts(uid) {
+async function getProduct(uid) {
 	const res = await fetch(
 	  `https://shoeshine8k-default-rtdb.firebaseio.com/products/${uid}.json`
 	);
@@ -6,4 +6,4 @@ async function getProducts(uid) {
 	return data;
   }
   
-  export { getProducts };
+  export { getProduct };
