@@ -10,7 +10,10 @@ export default function Home(props) {
    
 //https://jsonplaceholder.typicode.com/users https://auth-dash-dev-d53c8-default-rtdb.firebaseio.com/products.json - RLTB
   
-  const products = props.products;
+  const products = props.products.slice(0,3);
+
+  console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  console.log(process.env.STRIPE_SECRET_KEY)
 
   return (
     <>
